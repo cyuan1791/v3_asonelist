@@ -13,16 +13,14 @@
         <h5> Select City in {{ selectedState }} </h5>
     </div>
     <div v-if="stage == 1" class="state d-flex flex-wrap p-3 bg-warning bg-opacity-10">
-        <span @click="selectCity" class="p-1 border border-primary m-1" v-for="city in stateCities">
-            {{ city }}
-        </span>
+        <span class="p-1" v-for="city in stateCities">
+            <a :href="'https://' + city.replace(' ', '') + '-' + selectedState + '.asonelist.com'" targe=_blank>
+                {{ city }}</a>
+        </span>,
     </div>
-
-    <ListRequest :mystate="selectedState" :city="selectedCity" />
 </template>
 <script setup>
 import { computed, ref } from "vue";
-import ListRequest from "./ListRequest.vue";
 import stateCity from '@/data/usStateCities.json';
 
 
