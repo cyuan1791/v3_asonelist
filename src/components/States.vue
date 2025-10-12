@@ -39,7 +39,7 @@ const state = computed(() => {
 
 const selectState = (event) => {
     // @ts-ignore
-    console.log(event.target.innerHTML);
+    //console.log(event.target.innerHTML);
     selectedState
         .value = event.target.innerHTML;
     stage.value = 1;
@@ -47,7 +47,7 @@ const selectState = (event) => {
 }
 const selectCity = (event) => {
     // @ts-ignore
-    console.log(event.target.innerHTML);
+    //console.log(event.target.innerHTML);
     selectedCity.value = event.target.innerHTML;
     stage.value = 2;
 }

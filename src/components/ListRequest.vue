@@ -80,7 +80,7 @@ const processMessage = ref("");
 
 const selectCat = (event) => {
     // @ts-ignore
-    console.log(event.target.innerHTML);
+    //console.log(event.target.innerHTML);
     selectedCategory.value = event.target.innerHTML;
 }
 const websiteType = ref('shopping');
@@ -159,19 +159,19 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
     const desc = document.getElementById('desc').value;
     const wordCount = countWords(desc);
 
-    console.log('url:', url);
+    //console.log('url:', url);
 
     setTimeout(() => {
-        console.log('clear message');
+        //console.log('clear message');
         processMessage.value = '';
     }, 4000);
     processMessage.value = ''
     if (wordCount < 25 || wordCount > 60) {
         processMessage.value = "<p> The number of words in the description must be between 25 to 60 words. " + wordCount;
-        console.log(processMessage.value)
+        //console.log(processMessage.value)
         //return
     }
-    console.log('sub', url.substring(0, 7))
+    //console.log('sub', url.substring(0, 7))
     if (url.substring(0, 8) != 'https://') {
         processMessage.value += "<p> Please enter correct website url. Must started with https://</p>";
         return
@@ -185,7 +185,7 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
     console.log('desc word', countWords(desc))
     setTimeout(() => {
         // make sure the website is accessable before process the request
-        console.log('timeout', websiteIsAlive.value);
+        //console.log('timeout', websiteIsAlive.value);
         if (websiteIsAlive.value) {
             processRequest(url, desc, city, mystate, category, websiteType)
         } else {

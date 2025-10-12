@@ -36,9 +36,9 @@ onMounted(() => {
             // The response was a JSON object
             // Do your JSON handling here
             requestData.value = data;
-            console.log(data)
+            //console.log(data)
         } catch (err) {
-            console.log(err.message)
+            console.error(err.message)
             // The response wasn't a JSON object
             // Do your text handling here
         }

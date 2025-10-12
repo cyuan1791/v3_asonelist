@@ -3,10 +3,16 @@
   -->
 
   <nav class="d-flex justify-content-center p-3 bg-light">
-    <RouterLink class="px-2 m-1 border border-danger bg-dark text-white" to="/">My listing</RouterLink>
-    <RouterLink class="px-2 m-1 border border-primary bg-dark text-white " to="/Request">Free listing request
+    <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border  text-primary"
+      to="/">My listing
     </RouterLink>
-    <RouterLink class="px-2 m-1 border border-primary bg-dark text-white" to="/FindStateCity">Find other city's
+    <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border  text-primary "
+      to="/Request">
+      Free listing request
+    </RouterLink>
+    <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
+      to="/FindStateCity">Find
+      other city's
       listing
     </RouterLink>
   </nav>

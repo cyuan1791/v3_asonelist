@@ -33,7 +33,7 @@ const selectURL = ref("");
 
 
 function selectCat(requestData, event) {
-    console.log(event.target.getAttribute(('myCat')));
+    //console.log(event.target.getAttribute(('myCat')));
     const cat = event.target.getAttribute(('myCat'));
     const website = event.target.getAttribute(('website'));
 
@@ -42,7 +42,7 @@ function selectCat(requestData, event) {
 }
 
 function mover(event) {
-    console.log(event.target.getAttribute(('myURL')));
+    //console.log(event.target.getAttribute(('myURL')));
     selectURL.value = event.target.getAttribute(('myURL'));
     showPopup.value = true;
 }
@@ -60,7 +60,7 @@ function mover(event) {
     </div>
     <div class="d-flex justify-content-center p-1" v-if="requestData">
         <div>
-            <span class="btn btn-info btn-sm  m-1" :myCat="item" :website="websiteType"
+            <span class="btn btn-info btn-sm  text-white m-1" :myCat="item" :website="websiteType"
                 @click="selectCat(requestData, $event)" v-for="item in shoppingCategory" :key="item">
                 {{ item }} ({{ Object.keys(requestData[websiteType]['category'][item]).length }})
             </span>
