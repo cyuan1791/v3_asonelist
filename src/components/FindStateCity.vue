@@ -2,7 +2,7 @@
     <div class="state d-flex justify-content-center p-3 bg-light bg-opacity-10">
         <span class="px-4 py-2">{{ selectedCity }} {{ selectedState }}</span> <span class="btn btn-success"
             @click="startOver">
-            Select State</span>
+            Select a state</span>
     </div>
     <div v-if="stage == 0" class="state d-flex flex-wrap p-3 bg-info bg-opacity-10">
         <span @click="selectState" class="p-1 border border-primary m-1" v-for="st in state">
