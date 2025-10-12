@@ -10,7 +10,7 @@
         </span>
     </div>
     <div v-if="stage == 1" class="state d-flex justify-content-center p-3 bg-warning bg-opacity-10">
-        <h5> Select City in {{ selectedState }} </h5>
+        <h5> Listing of {{ selectedState }} </h5>
     </div>
     <div v-if="stage == 1" class="state d-flex flex-wrap p-3 bg-warning bg-opacity-10">
         <span class="p-1" v-for="city in stateCities">
