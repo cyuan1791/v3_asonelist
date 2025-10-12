@@ -56,6 +56,7 @@ const startOver = (event) => {
     stage.value = 0;
     selectedState.value = "";
     selectedCity.value = "";
+    stateCities.value = null;
 }
 // get the latest from webscmsa: /home/cmsnow/ws/trunk/template/asonelist/json/createJson.py 
 </script>

@@ -3,9 +3,12 @@
   -->
 
   <nav class="d-flex justify-content-center p-3 bg-light">
-    <RouterLink class="p-1" to="/">Go to Home</RouterLink>
-    <RouterLink class="p-1" to="/Request">Free list request</RouterLink>
-    <RouterLink class="p-1" to="/FindStateCity">Find other city ToList</RouterLink>
+    <RouterLink class="px-2 m-1 border border-danger bg-dark text-white" to="/">Go to Home</RouterLink>
+    <RouterLink class="px-2 m-1 border border-primary bg-dark text-white " to="/Request">Free list request
+    </RouterLink>
+    <RouterLink class="px-2 m-1 border border-primary bg-dark text-white" to="/FindStateCity">Find other city
+      ToList
+    </RouterLink>
   </nav>
 
   <router-view />

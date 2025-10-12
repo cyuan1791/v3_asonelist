@@ -51,9 +51,11 @@ function mover(event) {
 <template>
     <!-- Your component's template -->
     <div class="p-1 bg- d-flex justify-content-center">
-
-        <h5 v-if="websiteType == 'shopping'"> {{ city }} {{ mystate }} Local shopping website</h5>
-        <h5 v-else> {{ city }} {{ mystate }} Local non shopping website</h5>
+        <h5>Find local, buy from local, support local business!</h5>
+    </div>
+    <div class="state d-flex justify-content-center  p-1">
+        <h5 v-if="websiteType == 'shopping'"> {{ city }} {{ mystate }} local shopping website</h5>
+        <h5 v-else> {{ city }} {{ mystate }} local non shopping website</h5>
 
     </div>
     <div class="d-flex justify-content-center p-1" v-if="requestData">

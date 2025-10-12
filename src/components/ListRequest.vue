@@ -1,9 +1,10 @@
 <template>
     <div class="state d-flex justify-content-center p-3 bg-dark text-light bg-opacity-75">
         <div>
+            <label class="px-2">Select Website Type:</label>
             <label>
                 <input type="radio" v-model="websiteType" value="shopping" @change="handleChange" /> Shoping website
-            </label>
+            </label>,
             <label>
                 <input type="radio" v-model="websiteType" value="nonshopping" @change="handleChange" /> Non shopping
                 website
@@ -36,24 +37,15 @@
                 <h3 class="text-center"> {{ city }} {{ mystate }} : {{ selectedCategory }}</h3>
 
                 <div class="mb-3">
-                    <label for="website" class="form-label">Website</label>
-                    <input type="text" class="form-control" placeholder="https://... " id="website"
-                        value="https://www.webasone.com" required>
+                    <label for="website" class="form-label">&nbsp;&nbsp;Website</label>
+                    <input type="text" class="form-control" placeholder="https://... " id="website" value="" required>
 
                 </div>
                 <div class="mb-3">
-                    <label for="websiet description" class="form-label">Descripiton of the website. Must between 25 to
+                    <label for="websiet description" class="form-label">&nbsp;&nbsp;Descripiton of the website. Must
+                        between 25 to
                         60 words.</label>
                     <textarea class="form-control" id="desc" rows="5">
-                     ounting objects: 100% (9/9), done.
-Delta compression using up to 2 threads
-Compressing objects: 100% (5/5), done.
-Writing objects: 100% (5/5), 937 bytes | 937.00 KiB/s, done.
-Total 5 (delta 4), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
-To github.com:cyuan1791/v3_list.git
-   dee05a0..25e23b7  main -> main
-[cmsnow@asonelist ws]$    
                     </textarea>
                 </div>
                 <button @click.prevent="submitRequest(city, mystate, selectedCategory, websiteType, $event)"
@@ -169,6 +161,10 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
 
     console.log('url:', url);
 
+    setTimeout(() => {
+        console.log('clear message');
+        processMessage.value = '';
+    }, 4000);
     processMessage.value = ''
     if (wordCount < 25 || wordCount > 60) {
         processMessage.value = "<p> The number of words in the description must be between 25 to 60 words. " + wordCount;
@@ -180,6 +176,8 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
         processMessage.value += "<p> Please enter correct website url. Must started with https://</p>";
         return
     }
+
+
 
     checkWebsiteReachability(url);
 
