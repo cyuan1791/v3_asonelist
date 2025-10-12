@@ -9,8 +9,8 @@ const city = ref('Redding');
 const selectShoppingWebsite = ref(true)
 
 
-if ('asoneStatde' in window) {
-    state.value = window.asoneStage;
+if ('asoneState' in window) {
+    state.value = window.asoneState;
 }
 if ('asoneCity' in window) {
     city.value = window.asoneCity
