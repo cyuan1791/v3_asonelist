@@ -4,8 +4,8 @@ import ToList from './ToList.vue';
 
 // Define reactive state or other logic here
 const requestData = ref(null);
-const state = ref('CA');
-const city = ref('Redding');
+const state = ref("");
+const city = ref("");
 const selectShoppingWebsite = ref(true)
 
 
@@ -59,7 +59,7 @@ const websiteCategory = ['Activities', 'Business Help', 'Cleaning Services', 'Co
 </script>
 
 <template>
-    <div class="p-1 bg- d-flex justify-content-center">
+    <div v-if="city" class="p-1 bg- d-flex justify-content-center">
 
         <div @click="selectShoppingWebsite = !selectShoppingWebsite">
             <span class="btn btn-outline-primary" v-if="selectShoppingWebsite"> Switch to non shopping website </span>

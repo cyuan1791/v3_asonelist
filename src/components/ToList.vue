@@ -50,37 +50,39 @@ function mover(event) {
 
 <template>
     <!-- Your component's template -->
-    <div class="p-1 bg- d-flex justify-content-center">
-        <h5>Find local, buy from local, support local business!</h5>
-    </div>
-    <div class="state d-flex justify-content-center  p-1">
-        <h5 v-if="websiteType == 'shopping'"> {{ city }} {{ mystate }}, local shopping website</h5>
-        <h5 v-else> {{ city }} {{ mystate }}, local non shopping website</h5>
-
-    </div>
-    <div class="d-flex justify-content-center p-1" v-if="requestData">
-        <div>
-            <span class="btn btn-info btn-sm  text-white m-1" :myCat="item" :website="websiteType"
-                @click="selectCat(requestData, $event)" v-for="item in shoppingCategory" :key="item">
-                {{ item }} ({{ Object.keys(requestData[websiteType]['category'][item]).length }})
-            </span>
+    <div v-if="city">
+        <div class="p-1 bg- d-flex justify-content-center">
+            <h5>Find local, buy from local, support local business!</h5>
         </div>
-    </div>
+        <div class="state d-flex justify-content-center  p-1">
+            <h5 v-if="websiteType == 'shopping'"> {{ city }} {{ mystate }}, local shopping website</h5>
+            <h5 v-else> {{ city }} {{ mystate }}, local non shopping website</h5>
 
-    <div v-if="selectCategory.length !== 0" class="p-1 bg-light d-flex justify-content-center"
-        style="max-height: 300px;overflow: scroll;">
-        <div>
-            <a class="btn btn-success btn-sm m-1" :href="item.url" :myURL="item.url" target="_blank"
-                v-for="item in selectCategory" :key="item" @mouseover="mover" @mouseleave="showPopup = false">
-                {{ item.url }}
-            </a>
         </div>
-    </div>
-    <div class="p-3 bg-light d-flex justify-content-center" style="min-height: 400px;">
+        <div class="d-flex justify-content-center p-1" v-if="requestData">
+            <div>
+                <span class="btn btn-info btn-sm  text-white m-1" :myCat="item" :website="websiteType"
+                    @click="selectCat(requestData, $event)" v-for="item in shoppingCategory" :key="item">
+                    {{ item }} ({{ Object.keys(requestData[websiteType]['category'][item]).length }})
+                </span>
+            </div>
+        </div>
 
-        <div v-if="showPopup" class="popup">
-            <pre>
+        <div v-if="selectCategory.length !== 0" class="p-1 bg-light d-flex justify-content-center"
+            style="max-height: 300px;overflow: scroll;">
+            <div>
+                <a class="btn btn-success btn-sm m-1" :href="item.url" :myURL="item.url" target="_blank"
+                    v-for="item in selectCategory" :key="item" @mouseover="mover" @mouseleave="showPopup = false">
+                    {{ item.url }}
+                </a>
+            </div>
+        </div>
+        <div class="p-3 bg-light d-flex justify-content-center" style="min-height: 400px;">
+
+            <div v-if="showPopup" class="popup">
+                <pre>
             {{ selectCategory[selectURL]['desc'] }} </pre>
+            </div>
         </div>
     </div>
 
