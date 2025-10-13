@@ -14,9 +14,9 @@
     </div>
     <div v-if="stage == 1" class="state d-flex flex-wrap p-3 bg-warning bg-opacity-10">
         <span class="p-1" v-for="city in stateCities">
-            <a :href="'https://' + city.replace(' ', '') + '-' + selectedState + '.asonelist.com'" targe=_blank>
+            <a :href="'https://' + city.replace(' ', '') + '-' + selectedState + '.asonelist.com'" target=_blank_>
                 {{ city }}</a>
-        </span>,
+        </span>
     </div>
 </template>
 <script setup>
