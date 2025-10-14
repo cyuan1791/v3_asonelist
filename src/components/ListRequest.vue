@@ -38,15 +38,14 @@
 
                 <div class="mb-3">
                     <label for="website" class="form-label">&nbsp;&nbsp;Website</label>
-                    <input type="text" class="form-control" placeholder="http " id="website" value="" required>
+                    <input type="text" class="form-control" placeholder="https://... " id="website" value="" required>
 
                 </div>
                 <div class="mb-3">
                     <label for="websiet description" class="form-label">&nbsp;&nbsp;Descripiton of the website. Must
                         between 25 to
                         60 words.</label>
-                    <textarea class="form-control" id="desc" rows="5">
-                    </textarea>
+                    <textarea class="form-control" id="desc" rows="5"></textarea>
                 </div>
                 <button @click.prevent="submitRequest(city, mystate, selectedCategory, websiteType, $event)"
                     class="btn btn-info w-100"> Submit
@@ -172,7 +171,7 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
         //return
     }
     //console.log('sub', url.substring(0, 7))
-    if (url.substring(0, 4) != 'http') {
+    if (url.substring(0, 8) != 'https://') {
         processMessage.value += "<p> Please enter correct website url. Must started with https://</p>";
         return
     }
