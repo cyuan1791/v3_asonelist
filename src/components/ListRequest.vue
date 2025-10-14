@@ -3,13 +3,16 @@
         <div>
             <label class="px-2">Select Website Type:</label>
             <label>
-                <input type="radio" v-model="websiteType" value="shopping" @change="handleChange" /> Shoping website
+                <input type="radio" v-model="websiteType" value="shopping" @change="handleChange" /> Shopping website
             </label>,
             <label>
                 <input type="radio" v-model="websiteType" value="nonshopping" @change="handleChange" /> Non shopping
                 website
             </label>
         </div>
+    </div>
+    <div v-if="websiteType" class="state d-flex justify-content-center p-3 bg-secondary text-light bg-opacity-75">
+        <span> select a category for the website </span>
     </div>
     <div v-if="websiteType == 'shopping'" class="state d-flex flex-wrap p-3 bg-warning bg-opacity-10">
         <span @click="selectCat" class="p-1 border border-primary m-1" v-for="cat in shoppingCategory">
@@ -32,7 +35,7 @@
     <div class="state d-flex justify-content-center p-3 bg-success bg-opacity-10">
 
 
-        <div v-if="selectedCategory">
+        <div v-if="selectedCategory && city && mystate" class="row w-7">
             <form class="col-12">
                 <h3 class="text-center"> {{ city }} {{ mystate }} : {{ selectedCategory }}</h3>
 
@@ -43,8 +46,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="websiet description" class="form-label">&nbsp;&nbsp;Descripiton of the website. Must
-                        between 25 to
-                        60 words.</label>
+                        between 20 to
+                        50 words.</label>
                     <textarea class="form-control" id="desc" rows="5"></textarea>
                 </div>
                 <button @click.prevent="submitRequest(city, mystate, selectedCategory, websiteType, $event)"
@@ -82,7 +85,7 @@ const selectCat = (event) => {
     //console.log(event.target.innerHTML);
     selectedCategory.value = event.target.innerHTML;
 }
-const websiteType = ref('shopping');
+const websiteType = ref('');
 
 const handleChange = (event) => {
     //console.log('Radio button changed:', event.target.value);
@@ -127,8 +130,7 @@ async function processRequest(url, desc, city, mystate, category, websiteType) {
         city: city.replace(' ', '').replace("'", '').replace('.', '-').replace(' ', '').replace("'", ''),
         state: mystate,
         category: category,
-        websiteType: websiteType,
-        email: window.asoneEmail
+        websiteType: websiteType
     }
     //console.log('fm', fmdata)
     try {
@@ -165,10 +167,10 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
         processMessage.value = '';
     }, 4000);
     processMessage.value = ''
-    if (wordCount < 25 || wordCount > 60) {
+    if (wordCount < 20 || wordCount > 50) {
         processMessage.value = "<p> The number of words in the description must be between 25 to 60 words. " + wordCount;
         //console.log(processMessage.value)
-        //return
+        return
     }
     //console.log('sub', url.substring(0, 7))
     if (url.substring(0, 8) != 'https://') {

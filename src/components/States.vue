@@ -18,7 +18,7 @@
         </span>
     </div>
 
-    <ListRequest :mystate="selectedState" :city="selectedCity" />
+    <ListRequest v-if="selectedState && selectedCity" :mystate="selectedState" :city="selectedCity" />
 </template>
 <script setup>
 import { computed, ref } from "vue";
