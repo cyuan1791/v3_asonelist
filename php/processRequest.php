@@ -26,6 +26,8 @@
           $data = [];
         }
         $data_array['status'] = 0;
+        $data_array['RequestTime'] = time();
+
         $data[] = $data_array; 
         file_put_contents($jsonFilePath,json_encode($data, JSON_PRETTY_PRINT));  
       
