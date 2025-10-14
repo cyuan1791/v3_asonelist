@@ -38,7 +38,7 @@
 
                 <div class="mb-3">
                     <label for="website" class="form-label">&nbsp;&nbsp;Website</label>
-                    <input type="text" class="form-control" placeholder="https://... " id="website" value="" required>
+                    <input type="text" class="form-control" placeholder="http " id="website" value="" required>
 
                 </div>
                 <div class="mb-3">
@@ -172,7 +172,7 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
         //return
     }
     //console.log('sub', url.substring(0, 7))
-    if (url.substring(0, 8) != 'https://') {
+    if (url.substring(0, 4) != 'http') {
         processMessage.value += "<p> Please enter correct website url. Must started with https://</p>";
         return
     }
