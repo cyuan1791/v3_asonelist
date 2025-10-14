@@ -14,8 +14,8 @@
     </div>
     <div v-if="stage == 1" class="state d-flex flex-wrap p-3 bg-warning bg-opacity-10">
         <span class="p-1" v-for="city in stateCities">
-            <a :href="'https://' + city.replace(' ', '') + '-' + selectedState + '.asonelist.com'" target=_blank_>
-                {{ city }}</a>
+            <a :href="'https://' + mycity(city) + '-' + selectedState + '.asonelist.com'" target=_blank_>
+                {{ mycity(city) }}</a>
         </span>
     </div>
 </template>
@@ -34,6 +34,9 @@ const state = computed(() => {
 
 
 
+function mycity(city) {
+    return city.replace(' ', '').replace("'", '');
+}
 
 const selectState = (event) => {
     // @ts-ignore
