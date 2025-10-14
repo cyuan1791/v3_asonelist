@@ -86,7 +86,7 @@ const selectCat = (event) => {
 const websiteType = ref('shopping');
 
 const handleChange = (event) => {
-    console.log('Radio button changed:', event.target.value);
+    //console.log('Radio button changed:', event.target.value);
     websiteType.value = event.target.value;
     // Perform other actions based on the new selection
 };
@@ -96,7 +96,7 @@ async function checkWebsiteReachability(url) {
         const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
         // If the request completes without error, it implies reachability.
         // 'no-cors' mode prevents cross-origin issues and only checks if the server responds.
-        console.log(response)
+        //console.log(response)
         websiteIsAlive.value = true;
         return true;
     } catch (error) {
@@ -125,13 +125,13 @@ async function processRequest(url, desc, city, mystate, category, websiteType) {
     const fmdata = {
         url: url,
         desc: desc,
-        city: city,
+        city: city.replace(' ', '').replace("'", '').replace('.', '-'),
         state: mystate,
         category: category,
         websiteType: websiteType,
         email: window.asoneEmail
     }
-    console.log('fm', fmdata)
+    //console.log('fm', fmdata)
     try {
         const response = await fetch(window.asoneArea + '/ws/php/processRequest.php', {
             method: 'POST',
@@ -141,13 +141,13 @@ async function processRequest(url, desc, city, mystate, category, websiteType) {
         const data = JSON.parse(text); // Try to parse it as JSON
         // The response was a JSON object
         // Do your JSON handling here
-        console.log('success json responace', data)
+        //console.log('success json responace', data)
         processMessage.value
             = "<p> You have successfully submit your request. Once it passes review, it will be listed." +
             "<p> Only one category per website. You are welcome to resubmit the same website. " +
             " The previous entry will be replaced.</p>";
     } catch (err) {
-        console.log(err.message)
+        console.error(err.message)
         // The response wasn't a JSON object
         // Do your text handling here
     }
@@ -182,7 +182,7 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
     checkWebsiteReachability(url);
 
 
-    console.log('desc word', countWords(desc))
+    //console.log('desc word', countWords(desc))
     setTimeout(() => {
         // make sure the website is accessable before process the request
         //console.log('timeout', websiteIsAlive.value);

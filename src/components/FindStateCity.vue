@@ -35,7 +35,7 @@ const state = computed(() => {
 
 
 function mycity(city) {
-    return city.replace(' ', '').replace("'", '');
+    return city.replace(' ', '').replace("'", '').replace('.', '-');
 }
 
 const selectState = (event) => {
@@ -46,12 +46,7 @@ const selectState = (event) => {
     stage.value = 1;
     stateCities.value = stateCity[selectedState.value].sort()
 }
-const selectCity = (event) => {
-    // @ts-ignore
-    //console.log(event.target.innerHTML);
-    selectedCity.value = event.target.innerHTML;
-    stage.value = 2;
-}
+
 
 const startOver = (event) => {
     stage.value = 0;
