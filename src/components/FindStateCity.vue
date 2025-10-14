@@ -1,22 +1,37 @@
 <template>
     <div class="state d-flex justify-content-center p-3 bg-light bg-opacity-10">
-        <span class="px-4 py-2">{{ selectedCity }} {{ selectedState }}</span> <span class="btn btn-success"
+        <!-- <span class="px-4 py-2">{{ selectedCity }} {{ selectedState }}</span> <span class="btn btn-success"
             @click="startOver">
-            Select a state</span>
+            Select a state</span> &nbsp; &nbsp; -->
+        <input type="text" v-model="search" placeholder=" Search a city" :value="search" />
     </div>
-    <div v-if="stage == 0" class="state d-flex flex-wrap p-3 bg-info bg-opacity-10">
-        <span @click="selectState" class="p-1 border border-primary m-1" v-for="st in state">
+    <div v-if="search" class="state d-flex flex-wrap p-3 bg-info bg-opacity-10">
+        <span @click="selectState" class="p-1 border border-primary m-1"
+            v-for="st in state.filter(s => s.toLowerCase().includes(search.toLowerCase()))">
             {{ st }}
         </span>
-    </div>
-    <div v-if="stage == 1" class="state d-flex justify-content-center p-3 bg-warning bg-opacity-10">
-        <h5> {{ stateName[selectedState] }} state website listing</h5>
-    </div>
-    <div v-if="stage == 1" class="state d-flex flex-wrap p-3 bg-warning bg-opacity-10">
-        <span class="p-1" v-for="city in stateCities">
-            <a :href="myurl(city, selectedState)" target=_blank_>
-                {{ city }}</a>
+        <span v-for="st in state">
+
+            <span v-for="city in stateCity[st].filter(c => c.toLowerCase().includes(search.toLowerCase()))" class="p-1">
+                <a :href="myurl(city, st)" target=_blank_>
+                    {{ city }} {{ st }}</a></span>
         </span>
+    </div>
+    <div v-else>
+        <div v-if="stage == 0" class="state d-flex flex-wrap p-3 bg-info bg-opacity-10">
+            <span @click="selectState" class="p-1 border border-primary m-1" v-for="st in state">
+                {{ st }}
+            </span>
+        </div>
+        <div v-if="stage == 1" class="state d-flex justify-content-center p-3 bg-warning bg-opacity-10">
+            <h5> {{ stateName[selectedState] }} state website listing</h5>
+        </div>
+        <div v-if="stage == 1" class="state d-flex flex-wrap p-3 bg-warning bg-opacity-10">
+            <span class="p-1" v-for="city in stateCities">
+                <a :href="myurl(city, selectedState)" target=_blank_>
+                    {{ city }}</a>
+            </span>
+        </div>
     </div>
 </template>
 <script setup>
@@ -27,6 +42,7 @@ import stateCity from '@/data/usStateCities.json';
 const selectedState = ref("");
 const selectedCity = ref("");
 const stateCities = ref(null);
+const search = ref("");
 const stage = ref(0);
 const state = computed(() => {
     return Object.keys(stateCity).sort();
