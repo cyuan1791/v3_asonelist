@@ -25,7 +25,7 @@ onMounted(() => {
                 method: 'POST',
                 body: JSON.stringify({
                     state: state.value,
-                    city: city.value.replace(' ', '').replace("'", '').replace('.', '-'),
+                    city: city.value.replace(' ', '').replace("'", '').replace('.', '-').replace(' ', '').replace("'", ''),
                     shoppingCategory: shoppingCategory,
                     websiteCategory: websiteCategory
 

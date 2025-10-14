@@ -125,7 +125,7 @@ async function processRequest(url, desc, city, mystate, category, websiteType) {
     const fmdata = {
         url: url,
         desc: desc,
-        city: city.replace(' ', '').replace("'", '').replace('.', '-'),
+        city: city.replace(' ', '').replace("'", '').replace('.', '-').replace(' ', '').replace("'", ''),
         state: mystate,
         category: category,
         websiteType: websiteType,

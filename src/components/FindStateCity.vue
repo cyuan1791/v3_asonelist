@@ -14,7 +14,7 @@
     </div>
     <div v-if="stage == 1" class="state d-flex flex-wrap p-3 bg-warning bg-opacity-10">
         <span class="p-1" v-for="city in stateCities">
-            <a :href="'https://' + mycity(city) + '-' + selectedState + '.asonelist.com'" target=_blank_>
+            <a :href="myurl(city, selectedState)" target=_blank_>
                 {{ city }}</a>
         </span>
     </div>
@@ -32,11 +32,10 @@ const state = computed(() => {
     return Object.keys(stateCity).sort();
 });
 
-
-
-function mycity(city) {
-    return city.replace(' ', '').replace("'", '').replace('.', '-');
+function myurl(city, state) {
+    return 'https://' + city.replace(' ', '').replace("'", '').replace(' ', '').replace("'", '').replace('.', '-') + '-' + state + '.asonelist.com';
 }
+
 
 const selectState = (event) => {
     // @ts-ignore
