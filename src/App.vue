@@ -16,7 +16,7 @@
       listing
     </RouterLink>
   </div>
-  <div v-els>
+  <div v-else>
     <FindStateCity />
   </div>
 
