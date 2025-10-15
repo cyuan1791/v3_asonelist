@@ -46,8 +46,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="websiet description" class="form-label">&nbsp;&nbsp;Descripiton of the website. Must
-                        between 20 to
-                        50 words.</label>
+                        between 25 to
+                        60 words.</label>
                     <textarea class="form-control" id="desc" rows="5"></textarea>
                 </div>
 
@@ -175,7 +175,7 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
         processMessage.value = '';
     }, 4000); */
     processMessage.value = ''
-    if (wordCount < 20 || wordCount > 50) {
+    if (wordCount < 24 || wordCount > 61) {
         processMessage.value = "<p> The number of words in the description must be between 25 to 60 words. " + wordCount;
         //console.log(processMessage.value)
         return
