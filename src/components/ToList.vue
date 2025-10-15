@@ -62,8 +62,7 @@ function mover(event) {
         <div class="d-flex justify-content-center p-1" v-if="requestData">
             <div>
                 <span class="btn btn-info btn-sm  text-white m-1" :myCat="item" :website="websiteType"
-                    @mouseover="selectCat(requestData, $event)" @click="selectCat(requestData, $event)"
-                    v-for="item in shoppingCategory" :key="item">
+                    @click="selectCat(requestData, $event)" v-for="item in shoppingCategory" :key="item">
                     {{ item }} ({{ Object.keys(requestData[websiteType]['category'][item]).length }})
                 </span>
             </div>
