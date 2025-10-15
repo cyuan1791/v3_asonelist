@@ -4,15 +4,14 @@
 
   <div v-if="city" class="d-flex justify-content-center p-3 bg-light">
     <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border  text-primary"
-      to="/">My listing
+      to="/">Local listing
     </RouterLink>
     <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border  text-primary "
       to="/Request">
-      Free listing request
+      Free listing
     </RouterLink>
     <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
-      to="/FindStateCity">Find
-      other city's
+      to="/FindStateCity">Other's
       listing
     </RouterLink>
   </div>
