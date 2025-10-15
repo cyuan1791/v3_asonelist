@@ -51,7 +51,11 @@ const state = computed(() => {
     return Object.keys(stateCity).sort();
 });
 
-
+if ('asoneCity' in window) {
+    search.value = window.asoneCity;
+    selectedCity.value = window.asoneCity;
+    selectedState.value = window.asoneState;
+}
 
 
 const selectState = (event) => {
