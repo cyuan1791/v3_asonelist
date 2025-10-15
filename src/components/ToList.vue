@@ -74,7 +74,7 @@ function mover(event) {
             <div>
                 <a class="btn btn-success btn-sm m-1" :href="item.url" :myURL="item.url" target="_blank"
                     v-for="item in selectCategory" :key="item" @mouseover="mover" @mouseleave="showPopup = false">
-                    {{ item.url }}
+                    {{ item.url.replace('https://', '').replace('http://', '').replace('/', '').replace('www.', '') }}
                 </a>
             </div>
         </div>
