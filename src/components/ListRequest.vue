@@ -50,6 +50,14 @@
                         50 words.</label>
                     <textarea class="form-control" id="desc" rows="5"></textarea>
                 </div>
+
+                <div class="alert alert-danger">
+                    <p> You are submitting a request to add your website to {{ city }}, {{ mystate }} listing.</p>
+                    <p> Make sure the website you are submitting is live. It will listed after a quick review.</p>
+                    <p> Note: Only one category per website. You are welcome to resubmit the same website. The previous
+                        entry
+                        will be replaced.</p>
+                </div>
                 <button @click.prevent="submitRequest(city, mystate, selectedCategory, websiteType, $event)"
                     class="btn btn-info w-100"> Submit
                     Request</button>
