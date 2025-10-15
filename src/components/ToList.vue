@@ -80,8 +80,9 @@ function mover(event) {
         <div class="p-3 bg-light d-flex justify-content-center" style="min-height: 400px;">
 
             <div v-if="showPopup" class="popup">
-                <pre>
-            {{ selectCategory[selectURL]['desc'] }} </pre>
+                <div style="display: block; max-width: 350px;">
+                    {{ selectCategory[selectURL]['desc'] }}
+                </div>
             </div>
         </div>
     </div>
@@ -104,7 +105,7 @@ function mover(event) {
     color: white;
     padding: 10px;
     border-radius: 5px;
-    white-space: nowrap;
+    max-width: 350px;
     /* Prevent content from wrapping */
     z-index: 10;
     /* Ensure popup is above other elements */
