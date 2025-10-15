@@ -30,7 +30,7 @@ if ('asoneCity' in window) {
                 <li class="list-group-item">Only one entry per website. Resubmit the same website will replace the
                     existing</li>
                 <li class="list-group-item">Non active websites will be removed.</li>
-
+                <li class="list-group-item">US cities with more than 30000 are listed.</li>
                 <li class="list-group-item">Questions? info@webasone.com</li>
 
             </ul>
