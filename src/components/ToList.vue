@@ -77,7 +77,7 @@ function mover(event) {
                 </a>
             </div>
         </div>
-        <div class="p-3 bg-light d-flex justify-content-center" style="min-height: 400px;">
+        <div class="p-3 bg-light d-flex justify-content-center" style="min-height: 200px;">
 
             <div v-if="showPopup" class="popup">
                 <div style="display: block; max-width: 350px;">
