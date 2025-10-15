@@ -170,10 +170,10 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
 
     //console.log('url:', url);
 
-    setTimeout(() => {
+    /* setTimeout(() => {
         //console.log('clear message');
         processMessage.value = '';
-    }, 4000);
+    }, 4000); */
     processMessage.value = ''
     if (wordCount < 20 || wordCount > 50) {
         processMessage.value = "<p> The number of words in the description must be between 25 to 60 words. " + wordCount;
