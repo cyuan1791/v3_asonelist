@@ -206,10 +206,12 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
 }
 
 
-const shoppingCategory = ['Coffee', 'Fashion', 'Fine Art', 'Food', 'Gifts', 'Health and Wellness', 'Sports', 'Pets', 'Misc'];
+const shoppingCategory = ['Apparel', 'Coffee', 'Fashion', 'Fine Art', 'Food', 'Gifts', 'Health and Wellness', 'Sports', 'Pets', 'Misc'];
+
+// update this need to update v3_list:ShowList.vue
 
 const websiteCategory = ['Activities', 'Business Help', 'Cleaning Services', 'Coffee', 'Counseling', 'Digital Agency',
-    'Education', 'Farms Ranch', 'Gifts', 'Health Wellness', 'Jobs_Related', 'Local Interests', 'Media', 'Medical', 'Misc',
+    'Education', 'Farms Ranch', 'Gifts', 'Health Wellness', 'Jobs Related', 'Local Interests', 'Media', 'Medical', 'Misc',
     'Mortgage', 'Music', 'Night Life', 'Parks and Trails', 'Photography', 'Property Management', 'Real Estate', 'Solar', 'Sports',
     'Sports Rental', 'Tourism', 'Tree Services',
 ]
