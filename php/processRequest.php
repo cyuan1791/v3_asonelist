@@ -9,7 +9,7 @@
       }
        $json_data = file_get_contents("php://input");
        $data_array = json_decode($json_data, true); // Decodes to an associative array
-       $base= get_docroot()."../list";
+       $base= get_docroot()."../../www.asonelist.com/list";
        if (!is_dir($base) ) mkdir ($base);
        $jsonFilePath = $base.'/lastestsubmit.json';
        if (file_exists($jsonFile)) {
