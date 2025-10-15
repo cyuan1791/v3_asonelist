@@ -1,15 +1,9 @@
 <template>
     <div class="state d-flex justify-content-center p-3 bg-light bg-opacity-10">
-        <!-- <span class="px-4 py-2">{{ selectedCity }} {{ selectedState }}</span> <span class="btn btn-success"
-            @click="startOver">
-            Select a state</span> &nbsp; &nbsp; -->
         <input type="text" v-model="search" placeholder=" Search a city" :value="search" />
     </div>
     <div v-if="search" class="state d-flex flex-wrap p-3 bg-info bg-opacity-10">
-        <span @click="selectState" class="p-1 border border-primary m-1"
-            v-for="st in state.filter(s => s.toLowerCase().includes(search.toLowerCase()))">
-            {{ st }}
-        </span>
+
         <span v-for="st in state">
 
             <span v-for="city in stateCity[st].filter(c => c.toLowerCase().includes(search.toLowerCase()))" class="p-1">

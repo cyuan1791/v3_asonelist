@@ -12,7 +12,7 @@
         </div>
     </div>
     <div v-if="websiteType" class="state d-flex justify-content-center p-3 bg-secondary text-light bg-opacity-75">
-        <span> select a category for the website </span>
+        <span> Select a category for the website </span>
     </div>
     <div v-if="websiteType == 'shopping'" class="state d-flex flex-wrap p-3 bg-warning bg-opacity-10">
         <span @click="selectCat" class="p-1 border border-primary m-1" v-for="cat in shoppingCategory">
