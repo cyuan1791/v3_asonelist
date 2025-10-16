@@ -64,6 +64,15 @@ function mover(event) {
     selectURL.value = event.target.getAttribute(('myURL'));
     showPopup.value = true;
 }
+
+const toggleList = (item, event) => {
+    const element = document.getElementById(item);
+    if (element.style.display === 'none') {
+        element.style.display = 'block'; // Or 'flex', 'grid', etc., depending on the desired display type
+    } else {
+        element.style.display = 'none';
+    }
+};
 </script>
 
 <template>
@@ -88,23 +97,27 @@ function mover(event) {
             </div>
         </div>
         <div v-else>
+            <!-- tab and mobile view -->
             <div class="d-flex justify-content-center p-1" v-if="requestData">
                 <div>
                     <div class="p-2 bg-info text-white" :myCat="item" :website="websiteType"
                         v-for="item in shoppingCategory" :key="item">
-                        <span class="btn btn-warning w-100"> {{ item }} ({{
+                        <span @click="toggleList(item, $event)" class="btn btn-warning w-100"> {{ item }} ({{
                             Object.keys(requestData[websiteType]['category'][item]).length }})</span>
-                        <a class="btn btn-success btn-sm" :href="item.url" :myURL="item.url" target="_blank"
-                            v-for="item in selectCategory" :key="item">
-                            {{ item.url.replace('https://', '').replace('http://', '').replace('/',
-                                '').replace('www.', '') }}
-                        </a>
-                        <div class="p-3 border rounded border-light">
-                            <div v-for="list in requestData[websiteType]['category'][item]" :key="list">
-                                <a class="btn btn-secondary w-100" :href="list['url']" target="_blank"> {{ list['url']
-                                }}</a>
-                                <div class="p-2">
-                                    <div class="p-2">{{ list['desc'] }}</div>
+                        <div :id="item" style="display: none;">
+                            <a class="btn btn-success btn-sm" :href="item.url" :myURL="item.url" target="_blank"
+                                v-for="item in selectCategory" :key="item">
+                                {{ item.url.replace('https://', '').replace('http://', '').replace('/',
+                                    '').replace('www.', '') }}
+                            </a>
+                            <div class="p-3 border rounded border-light">
+                                <div v-for="list in requestData[websiteType]['category'][item]" :key="list">
+                                    <a class="btn btn-secondary w-100" :href="list['url']" target="_blank"> {{
+                                        list['url']
+                                        }}</a>
+                                    <div class="p-2">
+                                        <div class="p-2">{{ list['desc'] }}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
