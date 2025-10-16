@@ -108,13 +108,13 @@ const toggleList = (item, event) => {
                             <a class="btn btn-success btn-sm" :href="item.url" :myURL="item.url" target="_blank"
                                 v-for="item in selectCategory" :key="item">
                                 {{ item.url.replace('https://', '').replace('http://', '').replace('/',
-                                    '').replace('www.', '') }}
+                                    '').replace('www.', '').slice(0, 30) }}...
                             </a>
                             <div class="p-3 border rounded border-light">
                                 <div v-for="list in requestData[websiteType]['category'][item]" :key="list">
                                     <a class="btn btn-secondary w-100" :href="list['url']" target="_blank"> {{
-                                        list['url']
-                                        }}</a>
+                                        list['url'].slice(0, 30)
+                                    }}</a>
                                     <div class="p-2">
                                         <div class="p-2">{{ list['desc'] }}</div>
                                     </div>
@@ -133,7 +133,8 @@ const toggleList = (item, event) => {
             <div>
                 <a class="btn btn-success btn-sm m-1" :href="item.url" :myURL="item.url" target="_blank"
                     v-for="item in selectCategory" :key="item" @mouseover="mover" @mouseleave="showPopup = false">
-                    {{ item.url.replace('https://', '').replace('http://', '').replace('/', '').replace('www.', '')
+                    {{ item.url.replace('https://', '').replace('http://', '').replace('/', '').replace('www.',
+                        '').slice(0, 30)
                     }}
                 </a>
             </div>
