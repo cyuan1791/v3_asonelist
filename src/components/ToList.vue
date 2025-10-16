@@ -1,5 +1,6 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
+
 
 defineProps({
     mystate: {
@@ -31,7 +32,24 @@ const showPopup = ref(false);
 const selectURL = ref("");
 
 
+const windowWidth = ref(window.innerWidth);
 
+const handleResize = () => {
+    windowWidth.value = window.innerWidth;
+};
+
+onMounted(() => {
+    window.addEventListener('resize', handleResize);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', handleResize);
+});
+
+import { computed } from 'vue';
+
+const isMobile = computed(() => windowWidth.value < 768); // Example breakpoint
+const isDesktop = computed(() => windowWidth.value >= 768);
 function selectCat(requestData, event) {
     //console.log(event.target.getAttribute(('myCat')));
     const cat = event.target.getAttribute(('myCat'));
@@ -59,21 +77,50 @@ function mover(event) {
             <h5 v-else> {{ city }} {{ mystate }}, local non shopping website</h5>
 
         </div>
-        <div class="d-flex justify-content-center p-1" v-if="requestData">
-            <div>
-                <span class="btn btn-info btn-sm  text-white m-1" :myCat="item" :website="websiteType"
-                    @click="selectCat(requestData, $event)" v-for="item in shoppingCategory" :key="item">
-                    {{ item }} ({{ Object.keys(requestData[websiteType]['category'][item]).length }})
-                </span>
+        <div v-if="isDesktop">
+            <div class="d-flex justify-content-center p-1" v-if="requestData">
+                <div>
+                    <span class="btn btn-info btn-sm  text-white m-1" :myCat="item" :website="websiteType"
+                        @click="selectCat(requestData, $event)" v-for="item in shoppingCategory" :key="item">
+                        {{ item }} ({{ Object.keys(requestData[websiteType]['category'][item]).length }})
+                    </span>
+                </div>
             </div>
         </div>
+        <div v-else>
+            <div class="d-flex justify-content-center p-1" v-if="requestData">
+                <div>
+                    <div class="p-2 bg-info text-white" :myCat="item" :website="websiteType"
+                        v-for="item in shoppingCategory" :key="item">
+                        <span class="btn btn-warning w-100"> {{ item }}</span>
+                        <a class="btn btn-success btn-sm" :href="item.url" :myURL="item.url" target="_blank"
+                            v-for="item in selectCategory" :key="item">
+                            {{ item.url.replace('https://', '').replace('http://', '').replace('/',
+                                '').replace('www.', '') }}
+                        </a>
+                        <div class="p-3 border rounded border-light">
+                            <div v-for="list in requestData[websiteType]['category'][item]" :key="list">
+                                <a class="btn btn-secondary w-100" :href="list['url']" target="_blank"> {{ list['url']
+                                    }}</a>
+                                <div class="p-2">
+                                    <div class="p-2">{{ list['desc'] }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div v-if="isDesktop">
         <div v-if="selectCategory.length !== 0" class="p-1 bg-light d-flex justify-content-center"
             style="max-height: 300px;overflow: scroll;">
             <div>
                 <a class="btn btn-success btn-sm m-1" :href="item.url" :myURL="item.url" target="_blank"
                     v-for="item in selectCategory" :key="item" @mouseover="mover" @mouseleave="showPopup = false">
-                    {{ item.url.replace('https://', '').replace('http://', '').replace('/', '').replace('www.', '') }}
+                    {{ item.url.replace('https://', '').replace('http://', '').replace('/', '').replace('www.', '')
+                    }}
                 </a>
             </div>
         </div>
@@ -86,6 +133,7 @@ function mover(event) {
             </div>
         </div>
     </div>
+
 
 </template>
 
