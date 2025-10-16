@@ -92,7 +92,8 @@ function mover(event) {
                 <div>
                     <div class="p-2 bg-info text-white" :myCat="item" :website="websiteType"
                         v-for="item in shoppingCategory" :key="item">
-                        <span class="btn btn-warning w-100"> {{ item }}</span>
+                        <span class="btn btn-warning w-100"> {{ item }} ({{
+                            Object.keys(requestData[websiteType]['category'][item]).length }})</span>
                         <a class="btn btn-success btn-sm" :href="item.url" :myURL="item.url" target="_blank"
                             v-for="item in selectCategory" :key="item">
                             {{ item.url.replace('https://', '').replace('http://', '').replace('/',
