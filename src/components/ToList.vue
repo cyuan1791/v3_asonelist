@@ -48,8 +48,8 @@ onUnmounted(() => {
 
 import { computed } from 'vue';
 
-const isMobile = computed(() => windowWidth.value < 768); // Example breakpoint
-const isDesktop = computed(() => windowWidth.value >= 768);
+const isMobile = computed(() => windowWidth.value <= 768); // Example breakpoint
+const isDesktop = computed(() => windowWidth.value > 768);
 function selectCat(requestData, event) {
     //console.log(event.target.getAttribute(('myCat')));
     const cat = event.target.getAttribute(('myCat'));
@@ -101,7 +101,7 @@ function mover(event) {
                         <div class="p-3 border rounded border-light">
                             <div v-for="list in requestData[websiteType]['category'][item]" :key="list">
                                 <a class="btn btn-secondary w-100" :href="list['url']" target="_blank"> {{ list['url']
-                                    }}</a>
+                                }}</a>
                                 <div class="p-2">
                                     <div class="p-2">{{ list['desc'] }}</div>
                                 </div>
