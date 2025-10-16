@@ -32,7 +32,13 @@
         </div>
     </div>
 
-    <div class="state d-flex justify-content-center p-3 bg-success bg-opacity-10">
+    <div v-if="processingRequest" class="state d-flex justify-content-center p-3 bg-info bg-opacity-10">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Processing...</span>
+        </div>
+        <span class="px-2"> Processing your request...</span>
+    </div>
+    <div v-else class="state d-flex justify-content-center p-3 bg-success bg-opacity-10">
 
 
         <div v-if="selectedCategory && city && mystate" class="row w-7">
@@ -87,6 +93,7 @@ defineProps({
 const selectedCategory = ref("");
 const websiteIsAlive = ref(false);
 const processMessage = ref("");
+const processingRequest = ref(false);
 
 const selectCat = (event) => {
     // @ts-ignore
@@ -151,6 +158,7 @@ async function processRequest(url, desc, city, mystate, category, websiteType) {
         // The response was a JSON object
         // Do your JSON handling here
         console.log('success json responace', data)
+        processingRequest.value = false;
         processMessage.value
             = "<p> You have successfully submit your request. Once it passes review, it will be listed." +
             "<p> Only one category per website. You are welcome to resubmit the same website. " +
@@ -164,6 +172,7 @@ async function processRequest(url, desc, city, mystate, category, websiteType) {
 
 const submitRequest = (city, mystate, category, websiteType, event) => {
     console.log('submit request');
+    processingRequest.value = true;
     const url = document.getElementById('website').value.trim();
     const desc = document.getElementById('desc').value;
     const wordCount = countWords(desc);
