@@ -141,8 +141,8 @@ const toggleList = (item, event) => {
         <div class="p-3 bg-light d-flex justify-content-center" style="min-height: 200px;">
 
             <div v-if="showPopup" class="popup">
-                <div style="display: block; max-width: 350px;">
-                    {{ selectCategory[selectURL]['desc'] }}
+                <div style="display: block; max-width: 350px;"
+                    v-html='selectCategory[selectURL]["desc"].replace("\n", "<br />")'>
                 </div>
             </div>
         </div>

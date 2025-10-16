@@ -133,7 +133,7 @@ function countWords(str) {
 }
 async function processRequest(url, desc, city, mystate, category, websiteType) {
     const fmdata = {
-        url: url,
+        url: url.replace(/\/$/, "").replace(/\/$/, "").replace(/\/$/, ""),
         desc: desc,
         city: city.replace(' ', '').replace("'", '').replace('.', '-').replace(' ', '').replace("'", ''),
         state: mystate,
