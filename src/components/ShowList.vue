@@ -59,6 +59,12 @@ const websiteCategory = ['Activities', 'Business Help', 'Cleaning Services', 'Co
 </script>
 
 <template>
+    <div class="p-1 bg- d-flex justify-content-center">
+        <div>
+            <h5>Find local, buy from local</h5>
+            <h5>Support local business!</h5>
+        </div>
+    </div>
     <div v-if="city" class="p-1 bg- d-flex justify-content-center">
 
         <div @click="selectShoppingWebsite = !selectShoppingWebsite">

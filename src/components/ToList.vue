@@ -78,10 +78,8 @@ const toggleList = (item, event) => {
 <template>
     <!-- Your component's template -->
     <div v-if="city">
-        <div class="p-1 bg- d-flex justify-content-center">
-            <h5>Find local, buy from local, support local business!</h5>
-        </div>
-        <div class="state d-flex justify-content-center  p-1">
+
+        <div class="state d-flex justify-content-center  p-3">
             <h5 v-if="websiteType == 'shopping'"> {{ city }} {{ mystate }}, local shopping website</h5>
             <h5 v-else> {{ city }} {{ mystate }}, local non shopping website</h5>
 
