@@ -187,11 +187,15 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
     if (wordCount < 24 || wordCount > 61) {
         processMessage.value = "<p> The number of words in the description must be between 25 to 60 words. " + wordCount;
         //console.log(processMessage.value)
+        //console.log('word count', wordCount)
+        processingRequest.value = false;
+
         return
     }
     //console.log('sub', url.substring(0, 7))
     if (url.substring(0, 8) != 'https://') {
         processMessage.value += "<p> Please enter correct website url. Must started with https://</p>";
+        processingRequest.value = false;
         return
     }
 
@@ -207,6 +211,7 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
         if (websiteIsAlive.value) {
             processRequest(url, desc, city, mystate, category, websiteType)
         } else {
+            processingRequest.value = false;
             processMessage.value += `<p> ${url} is not a live website. Please enter website starting with https://`
         }
 
