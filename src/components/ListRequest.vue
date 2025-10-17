@@ -220,7 +220,7 @@ const submitRequest = (city, mystate, category, websiteType, event) => {
 }
 
 
-const shoppingCategory = ['Apparel', 'Coffee', 'Fashion', 'Fine Art', 'Food', 'Gifts', 'Health and Wellness', 'Sports', 'Pets', 'Misc'];
+const shoppingCategory = ['Apparel', 'Coffee', 'Fashion', 'Fine Art', 'Flowers', 'Food', 'Gifts', 'Health and Wellness', 'Sports', 'Pets', 'Misc'];
 
 // update this need to update v3_list:ShowList.vue
 
