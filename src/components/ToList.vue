@@ -110,9 +110,8 @@ const toggleList = (item, event) => {
                             </a>
                             <div class="p-3 border rounded border-light">
                                 <div v-for="list in requestData[websiteType]['category'][item]" :key="list">
-                                    <a class="btn btn-secondary w-100" :href="list['url']" target="_blank"> {{
-                                        list['url'].slice(0, 30)
-                                    }}</a>
+                                    <a class="btn btn-secondary w-100" :href="list['url']" target="_blank">
+                                        {{ list['url'].slice(0, 30) }} </a>
                                     <div class="p-2">
                                         <div class="p-2">{{ list['desc'] }}</div>
                                     </div>
