@@ -103,15 +103,15 @@ const toggleList = (item, event) => {
                         <span @click="toggleList(item, $event)" class="btn btn-warning w-100"> {{ item }} ({{
                             Object.keys(requestData[websiteType]['category'][item]).length }})</span>
                         <div :id="item" style="display: none;">
-                            <a class="btn btn-success btn-sm" :href="item.url" :myURL="item.url" target="_blank"
-                                v-for="item in selectCategory" :key="item">
+                            <a class="btn btn-success btn-sm" :href="'{{item.url}}'" :myURL="'{{item.url}}'"
+                                target="_blank" v-for="item in selectCategory" :key="item">
                                 {{ item.url.slice(0, 30) }}
 
                             </a>
 
                             <div class="p-3 border rounded border-light">
                                 <div v-for="list in requestData[websiteType]['category'][item]" :key="list">
-                                    <a class="btn btn-secondary w-100" :href="list['url']" target="_blank">
+                                    <a class="btn btn-secondary w-100" :href="'{{list.url}}'" target="_blank">
                                         {{ list['url'].slice(0, 30) }} </a>
                                     <div class="p-2">
                                         <div class="p-2">{{ list['desc'] }}</div>
