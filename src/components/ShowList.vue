@@ -72,9 +72,9 @@ const websiteCategory = ['Activities', 'Business Help', 'Cleaning Services', 'Co
             <span v-else class="btn btn-outline-warning text-dark"> Switch to shopping website </span>
         </div>
     </div>
-    <ToList v-if="selectShoppingWebsite" :city="city" :mystate="state" :websiteType="'shopping'"
+    <!--  <ToList v-if="selectShoppingWebsite" :city="city" :mystate="state" :websiteType="'shopping'"
         :requestData="requestData" :shoppingCategory="shoppingCategory" />
     <ToList v-else :city="city" :mystate="state" :websiteType="'nonshopping'" :requestData="requestData"
         :shoppingCategory="websiteCategory" />
-
+ -->
 </template>
