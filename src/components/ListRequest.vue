@@ -78,6 +78,7 @@
 //import { state } from '@/data/States';
 //import { state } from '@/data/States';
 import { ref } from 'vue';
+import sanitizeHtml from 'sanitize-html';
 
 defineProps({
     mystate: {
@@ -141,7 +142,7 @@ function countWords(str) {
 async function processRequest(url, desc, city, mystate, category, websiteType) {
     const fmdata = {
         url: url.replace(/\/$/, "").replace(/\/$/, "").replace(/\/$/, ""),
-        desc: desc,
+        desc: sanitizeHtml(desc),
         city: city.replace(' ', '').replace("'", '').replace('.', '-').replace(' ', '').replace("'", ''),
         state: mystate,
         category: category,
