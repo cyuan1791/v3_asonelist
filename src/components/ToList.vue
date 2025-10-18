@@ -96,7 +96,7 @@ const toggleList = (item, event) => {
         </div>
         <div v-else>
             <!-- tab and mobile view -->
-            <div class="d-flex justify-content-center p-1" v-if="requestData">
+            <!-- <div class="d-flex justify-content-center p-1" v-if="requestData">
                 <div>
                     <div class="p-2 bg-info text-white" :myCat="item" :website="websiteType"
                         v-for="item in shoppingCategory" :key="item">
@@ -121,7 +121,7 @@ const toggleList = (item, event) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
