@@ -105,9 +105,10 @@ const toggleList = (item, event) => {
                         <div :id="item" style="display: none;">
                             <a class="btn btn-success btn-sm" :href="item.url" :myURL="item.url" target="_blank"
                                 v-for="item in selectCategory" :key="item">
-                                {{ item.url.replace('https://', '').replace('http://', '').replace('/',
-                                    '').replace('www.', '').slice(0, 30) }}...
+                                {{ item.url.slice(0, 30) }}
+
                             </a>
+
                             <div class="p-3 border rounded border-light">
                                 <div v-for="list in requestData[websiteType]['category'][item]" :key="list">
                                     <a class="btn btn-secondary w-100" :href="list['url']" target="_blank">
