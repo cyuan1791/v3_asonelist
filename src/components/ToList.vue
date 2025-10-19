@@ -85,7 +85,7 @@ const toggleList = (item, event) => {
 
         </div>
         <div v-if="isDesktop">
-            <div class="d-flex justify-content-center p-1" v-if="requestData">
+            <div class="d-flex justify-content-center p-1" v-if="requestData && requestData[websiteType]">
                 <div>
                     <span class="btn btn-info btn-sm  text-white m-1" :myCat="item" :website="websiteType"
                         @click="selectCat(requestData, $event)" v-for="item in shoppingCategory" :key="item">
@@ -96,7 +96,7 @@ const toggleList = (item, event) => {
         </div>
         <div v-else>
             <!-- tab and mobile view -->
-            <div class="d-flex justify-content-center p-1" v-if="requestData">
+            <div class="d-flex justify-content-center p-1" v-if="requestData && requestData[websiteType]">
                 <div>
                     <div class="p-2 bg-info text-white" :myCat="item" :website="websiteType"
                         v-for="item in shoppingCategory" :key="item">
