@@ -21,7 +21,16 @@ onMounted(() => {
     async function processRequest() {
 
         try {
-            const response = await fetch(window.asoneArea + '/ws/php/getList.php', {
+            let startURL = "";
+            const vite_api_url = import.meta.env.VITE_API_URL
+            if (typeof vite_api_url !== 'undefined') {
+                // this is development environment
+                startURL = vite_api_url;
+            } else {
+                // production environment
+                startURL = window.asoneArea + '/';
+            }
+            const response = await fetch(startURL + 'ws/php/getList.php', {
                 method: 'POST',
                 body: JSON.stringify({
                     state: state.value,
