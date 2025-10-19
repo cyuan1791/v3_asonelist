@@ -1,6 +1,6 @@
 <template>
     <div class="state d-flex justify-content-center p-3 bg-light bg-opacity-10">
-        <input type="text" v-model="search" placeholder=" Search a city" :value="search" />
+        <input type="text" v-model="search" placeholder=" Search a city" />
     </div>
     <div v-if="search">
         <div class="state d-flex flex-wrap p-3 bg-info bg-opacity-10">
