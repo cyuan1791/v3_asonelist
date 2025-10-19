@@ -140,7 +140,7 @@ const toggleList = (item, event) => {
         <div class="p-3 bg-light d-flex justify-content-center" style="min-height: 200px;">
 
             <div v-if="showPopup" class="popup">
-                <div style="display: block; max-width: 350px;"
+                <div style="display: block; max-width: 680px;"
                     v-html='selectCategory[selectURL]["desc"].replace("\n", "<br />")'>
                 </div>
             </div>
@@ -166,7 +166,7 @@ const toggleList = (item, event) => {
     color: white;
     padding: 10px;
     border-radius: 5px;
-    max-width: 350px;
+    max-width: 700px;
     /* Prevent content from wrapping */
     z-index: 10;
     /* Ensure popup is above other elements */
