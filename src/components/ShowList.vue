@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, computed, ref } from 'vue';
 import ToList from './ToList.vue';
 import SearchList from './SearchList.vue';
 
@@ -9,6 +9,8 @@ const state = ref("");
 const city = ref("");
 const selectShoppingWebsite = ref(true)
 const search = ref("");
+const windowWidth = ref(window.innerWidth);
+
 
 if ('asoneState' in window) {
     state.value = window.asoneState;
@@ -65,6 +67,8 @@ const websiteCategory = ['Activities', 'Business Help', 'Cleaning Services', 'Co
     'Sports Rental', 'Tourism', 'Tree Services',
 ];
 
+const isDesktop = computed(() => windowWidth.value > 768);
+
 
 </script>
 
@@ -78,17 +82,34 @@ const websiteCategory = ['Activities', 'Business Help', 'Cleaning Services', 'Co
     </div>
     <div v-if="city" class="p-1 bg- d-flex justify-content-center">
 
-        <div>
+        <div v-if="isDesktop">
             <div v-if="selectShoppingWebsite">
                 <span @click="selectShoppingWebsite = !selectShoppingWebsite" class="btn btn-danger text-white"> Switch
                     to non shopping website
-                </span> &nbsp;&nbsp;<input class="px-2" type="text" v-model="search"
-                    placeholder="Seach shopping website" />
+                </span> &nbsp;&nbsp;
+                <input class="px-2" type="text" v-model="search" placeholder="Seach shopping website" />
             </div>
             <div v-else>
                 <span @click="selectShoppingWebsite = !selectShoppingWebsite" class="btn btn-danger text-white"> Switch
-                    to shopping website </span>&nbsp;&nbsp; <input class="px-2" type="text" v-model="search"
-                    placeholder="Seach non-shopping website" />
+                    to shopping website </span>&nbsp;&nbsp;
+                <input class="px-2" type="text" v-model="search" placeholder="Seach non-shopping website" />
+            </div>
+        </div>
+        <div v-else>
+            <div v-if="selectShoppingWebsite">
+                <h5 @click="selectShoppingWebsite = !selectShoppingWebsite"
+                    class="btn btn-danger text-white text-center"> Switch
+                    to non shopping website
+                </h5>
+                <h5 class="text-center"> <input class="px-2" type="text" v-model="search"
+                        placeholder="Seach shopping website" /></h5>
+            </div>
+            <div v-else>
+                <h5 @click="selectShoppingWebsite = !selectShoppingWebsite"
+                    class="btn btn-danger text-white text-center p-2"> Switch
+                    to shopping website </h5>
+                <h5 class="text-center p-2"><input class="px-2" type="text" v-model="search"
+                        placeholder="Seach non-shopping website" /></h5>
             </div>
         </div>
     </div>
