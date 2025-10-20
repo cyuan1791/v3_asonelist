@@ -157,7 +157,7 @@ async function processRequest(url, desc, city, mystate, category, websiteType) {
         const data = JSON.parse(text); // Try to parse it as JSON
         // The response was a JSON object
         // Do your JSON handling here
-        console.log('success json responace', data)
+        //ßconsole.log('success json responace', data)
         processingRequest.value = false;
         processMessage.value
             = "<p> You have successfully submit your request. Once it passes review, it will be listed." +
