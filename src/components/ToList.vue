@@ -22,7 +22,11 @@ defineProps({
     shoppingCategory: {
         type: Array,
         required: true,
-    }
+    },
+    search: {
+        type: String,
+        required: false,
+    },
 })
 
 // Define reactive state or other logic here
@@ -77,7 +81,7 @@ const toggleList = (item, event) => {
 
 <template>
     <!-- Your component's template -->
-    <div v-if="city">
+    <div v-if="city && mystate">
 
         <div class="state d-flex justify-content-center  p-3">
             <h5 v-if="websiteType == 'shopping'"> {{ city }} {{ mystate }}, local shopping website</h5>
@@ -125,7 +129,7 @@ const toggleList = (item, event) => {
         </div>
     </div>
 
-    <div v-if="isDesktop">
+    <template v-if="isDesktop">
         <div v-if="selectCategory.length !== 0" class="p-1 bg-light d-flex justify-content-center"
             style="max-height: 300px;overflow: scroll;">
             <div>
@@ -145,7 +149,7 @@ const toggleList = (item, event) => {
                 </div>
             </div>
         </div>
-    </div>
+    </template>
 
 
 </template>

@@ -1,13 +1,14 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import ToList from './ToList.vue';
+import SearchList from './SearchList.vue';
 
 // Define reactive state or other logic here
 const requestData = ref(null);
 const state = ref("");
 const city = ref("");
 const selectShoppingWebsite = ref(true)
-
+const search = ref("");
 
 if ('asoneState' in window) {
     state.value = window.asoneState;
@@ -77,15 +78,32 @@ const websiteCategory = ['Activities', 'Business Help', 'Cleaning Services', 'Co
     </div>
     <div v-if="city" class="p-1 bg- d-flex justify-content-center">
 
-        <div @click="selectShoppingWebsite = !selectShoppingWebsite">
-            <span class="btn btn-danger text-white" v-if="selectShoppingWebsite"> Switch to non shopping website
-            </span>
-            <span v-else class="btn btn-danger text-white"> Switch to shopping website </span>
+        <div>
+            <div v-if="selectShoppingWebsite">
+                <span @click="selectShoppingWebsite = !selectShoppingWebsite" class="btn btn-danger text-white"> Switch
+                    to non shopping website
+                </span> &nbsp;&nbsp;<input class="px-2" type="text" v-model="search"
+                    placeholder="Seach non-shopping website" />
+            </div>
+            <div v-else>
+                <span @click="selectShoppingWebsite = !selectShoppingWebsite" class="btn btn-danger text-white"> Switch
+                    to shopping website </span>&nbsp;&nbsp; <input class="px-2" type="text" v-model="search"
+                    placeholder="Seach shopping website" />
+            </div>
         </div>
     </div>
-    <ToList v-if="selectShoppingWebsite" :city="city" :mystate="state" :websiteType="'shopping'"
-        :requestData="requestData" :shoppingCategory="shoppingCategory" />
-    <ToList v-else :city="city" :mystate="state" :websiteType="'nonshopping'" :requestData="requestData"
-        :shoppingCategory="websiteCategory" />
+
+    <template v-if="search">
+        <SearchList v-if="selectShoppingWebsite" :city="city" :mystate="state" :websiteType="'shopping'"
+            :requestData="requestData" :shoppingCategory="shoppingCategory" :search />
+        <SearchList v-else :city="city" :mystate="state" :websiteType="'nonshopping'" :requestData="requestData"
+            :shoppingCategory="websiteCategory" :search />
+    </template>
+    <template v-else>
+        <ToList v-if="selectShoppingWebsite" :city="city" :mystate="state" :websiteType="'shopping'"
+            :requestData="requestData" :shoppingCategory="shoppingCategory" :search />
+        <ToList v-else :city="city" :mystate="state" :websiteType="'nonshopping'" :requestData="requestData"
+            :shoppingCategory="websiteCategory" :search />
+    </template>
 
 </template>
