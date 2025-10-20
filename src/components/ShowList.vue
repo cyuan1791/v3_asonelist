@@ -83,12 +83,12 @@ const websiteCategory = ['Activities', 'Business Help', 'Cleaning Services', 'Co
                 <span @click="selectShoppingWebsite = !selectShoppingWebsite" class="btn btn-danger text-white"> Switch
                     to non shopping website
                 </span> &nbsp;&nbsp;<input class="px-2" type="text" v-model="search"
-                    placeholder="Seach non-shopping website" />
+                    placeholder="Seach shopping website" />
             </div>
             <div v-else>
                 <span @click="selectShoppingWebsite = !selectShoppingWebsite" class="btn btn-danger text-white"> Switch
                     to shopping website </span>&nbsp;&nbsp; <input class="px-2" type="text" v-model="search"
-                    placeholder="Seach shopping website" />
+                    placeholder="Seach non-shopping website" />
             </div>
         </div>
     </div>
