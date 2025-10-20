@@ -72,13 +72,15 @@ const websiteCategory = ['Activities', 'Business Help', 'Cleaning Services', 'Co
         <div>
             <h5>Find local, buy from local</h5>
             <h5>Support local business!</h5>
+            <h5>Find local e-commerce website</h5>
         </div>
     </div>
     <div v-if="city" class="p-1 bg- d-flex justify-content-center">
 
         <div @click="selectShoppingWebsite = !selectShoppingWebsite">
-            <span class="btn btn-outline-primary" v-if="selectShoppingWebsite"> Switch to non shopping website </span>
-            <span v-else class="btn btn-outline-warning text-dark"> Switch to shopping website </span>
+            <span class="btn btn-danger text-white" v-if="selectShoppingWebsite"> Switch to non shopping website
+            </span>
+            <span v-else class="btn btn-danger text-white"> Switch to shopping website </span>
         </div>
     </div>
     <ToList v-if="selectShoppingWebsite" :city="city" :mystate="state" :websiteType="'shopping'"
