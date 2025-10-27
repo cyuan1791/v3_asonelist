@@ -14,6 +14,8 @@
       to="/FindStateCity">Other's
       listing
     </RouterLink>
+    <a v-if="myWebsite" :href="myWebsite" target="_blank" class="px-3 m-1 border   text-primary">
+      My agency</a>
     <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
       to="/FAQ">FAQ
     </RouterLink>
@@ -25,7 +27,7 @@
   <router-view />
 </template>
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import FindStateCity from './components/FindStateCity.vue';
 
 const city = ref('');
@@ -36,6 +38,14 @@ if ('asoneCity' in window) {
 if ('asoneState' in window) {
   state.value = window.asoneState;
 }
-
+const myWebsite = computed(() => {
+  if (state.value === 'CA') {
+    return `https://${city.value.toLowerCase()}-${state.value}.webasone-ca.com`;
+  } else if (state.value) {
+    return `https://${city.value.toLowerCase()}-${state.value}.webasone-us.com`;
+  } else {
+    return '';
+  }
+})
 
 </script>
