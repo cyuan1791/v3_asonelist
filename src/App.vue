@@ -16,10 +16,10 @@
         Free list
       </RouterLink>
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
-        to="/FindStateCity">Other's
+        to="/FindStateCity">Other's list
       </RouterLink>
       <a v-if="myWebsite" :href="myWebsite" target="_blank" class="px-3 m-1 border   text-primary">
-        Agency</a>
+        My Agency</a>
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
         to="/FAQ">FAQ
       </RouterLink>
