@@ -6,17 +6,17 @@
 
     <div class="d-flex justify-content-center  bg-light">
       <RouterLink active-class="bg-success bg-opacity-50 px-5 border-danger rounded"
-        class="px-3 m-1 border text-center text-primary" to="/">My Local List
+        class="px-3 m-1 border text-center text-primary" to="/">My Local Listing
       </RouterLink>
     </div>
     <div class="d-flex justify-content-center bg-light">
 
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
         class="px-3 m-1 border text-center  text-primary " to="/Request">
-        Free List
+        Free Listing
       </RouterLink>
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
-        class="px-3 m-1 border text-center  text-primary" to="/FindStateCity">Other's list
+        class="px-3 m-1 border text-center  text-primary" to="/FindStateCity">Other's Listing
       </RouterLink>
       <a v-if="myWebsite" :href="myWebsite" target="_blank" class="px-3 m-1 border text-center  text-primary">
         My Agency</a>
