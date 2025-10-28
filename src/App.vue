@@ -4,9 +4,9 @@
 
   <template v-if="city && state">
 
-    <div class="d-flex justify-content-center  bg-light">
+    <div class="d-flex justify-content-center pt-2 bg-light">
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
-        class="px-3 m-1 py-1 border border-2 text-center border-info text-primary" to="/">My Local List
+        class="px-3 m-1 py-1 border border-2 text-center border-info text-primary" to="/">Local List
       </RouterLink>
 
 
@@ -15,13 +15,13 @@
         Free List Request
       </RouterLink>
     </div>
-    <div class="d-flex justify-content-center bg-light">
+    <div class="d-flex justify-content-center pb-2 bg-light">
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
         class="px-3 m-1 py-1 border border-2 border-info text-center  text-primary" to="/FindStateCity">Other's List
       </RouterLink>
       <a v-if="myWebsite" :href="myWebsite" target="_blank"
         class="px-3 m-1 py-1 border border-2 border-info text-center  text-primary">
-        My Agency</a>
+        Agency</a>
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
         class="px-3 m-1 py-1 border border-2 border-info text-center text-primary" to="/FAQ">FAQ
       </RouterLink>

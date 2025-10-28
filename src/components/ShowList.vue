@@ -58,7 +58,7 @@ onMounted(() => {
     processRequest();
 });
 
-// update this need to update v3_list:ListRequest.vue
+// update this need to update ListRequest.vue
 const shoppingCategory = ['Apparel', 'Coffee', 'Fashion', 'Fine Art', 'Flowers', 'Food', 'Gifts', 'Health and Wellness', 'Sports', 'Pets', 'Misc'];
 
 const websiteCategory = ['Activities', 'Business Help', 'Cleaning Services', 'Coffee', 'Counseling', 'Digital Agency',
@@ -73,14 +73,14 @@ const isDesktop = computed(() => windowWidth.value > 768);
 </script>
 
 <template>
-    <div class="p-1 bg- d-flex justify-content-center">
+    <div class="p-1 p-3 d-flex justify-content-center">
         <div>
             <h5>Find local, buy from local</h5>
             <h5>Support local business!</h5>
             <h5>Find local e-commerce website</h5>
         </div>
     </div>
-    <div v-if="city" class="p-1 bg- d-flex justify-content-center">
+    <div v-if="city" class="p-1  d-flex justify-content-center">
 
         <div v-if="isDesktop">
             <div v-if="selectShoppingWebsite">
