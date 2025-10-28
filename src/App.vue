@@ -46,11 +46,16 @@ if ('asoneCity' in window) {
 if ('asoneState' in window) {
   state.value = window.asoneState;
 }
+function myurl(city, state, domain) {
+  return 'https://' + city.replace(' ', '').replace("'", '').replace(' ', '').replace("'", '').replace('.', '-') + '-' + state + '.' + domain;
+}
 const myWebsite = computed(() => {
   if (state.value === 'CA') {
-    return `https://${city.value.toLowerCase()}-${state.value}.webasone-ca.com`;
+    return myurl(city.value, state.value, 'webasone-ca.com');
+    //return `https://${city.value.toLowerCase()}-${state.value}.webasone-ca.com`;
   } else if (state.value) {
-    return `https://${city.value.toLowerCase()}-${state.value}.webasone-us.com`;
+    return myurl(city.value, state.value, 'webasone-us.com');
+    //return `https://${city.value.toLowerCase()}-${state.value}.webasone-us.com`;
   } else {
     return '';
   }
