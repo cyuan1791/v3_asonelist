@@ -2,23 +2,29 @@
   <!-- use vue3 and bootstrap 4 to create a blogpost. The post data is read from a json file. The main page display the title, data, author, image, summary and a read more link to read the content
   -->
 
-  <div v-if="city && state" class="d-flex justify-content-center p-3 bg-light">
-    <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border  text-primary"
-      to="/">Local list
-    </RouterLink>
-    <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border  text-primary "
-      to="/Request">
-      Free list
-    </RouterLink>
-    <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
-      to="/FindStateCity">Other's
-    </RouterLink>
-    <a v-if="myWebsite" :href="myWebsite" target="_blank" class="px-3 m-1 border   text-primary">
-      Agency</a>
-    <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
-      to="/FAQ">FAQ
-    </RouterLink>
-  </div>
+  <template v-if="city && state">
+
+    <div class="d-flex justify-content-center  bg-light">
+      <RouterLink active-class="bg-success bg-opacity-50 px-5 border-danger rounded"
+        class="px-3 m-1 border  text-primary" to="/">Local list
+      </RouterLink>
+    </div>
+    <div class="d-flex justify-content-center bg-light">
+
+      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border  text-primary "
+        to="/Request">
+        Free list
+      </RouterLink>
+      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
+        to="/FindStateCity">Other's
+      </RouterLink>
+      <a v-if="myWebsite" :href="myWebsite" target="_blank" class="px-3 m-1 border   text-primary">
+        Agency</a>
+      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
+        to="/FAQ">FAQ
+      </RouterLink>
+    </div>
+  </template>
   <div v-else>
     <FindStateCity />
   </div>
