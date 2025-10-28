@@ -6,22 +6,22 @@
 
     <div class="d-flex justify-content-center  bg-light">
       <RouterLink active-class="bg-success bg-opacity-50 px-5 border-danger rounded"
-        class="px-3 m-1 border  text-primary" to="/">Local list
+        class="px-3 m-1 border text-center text-primary" to="/">Local List
       </RouterLink>
     </div>
     <div class="d-flex justify-content-center bg-light">
 
-      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border  text-primary "
-        to="/Request">
-        Free list
+      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
+        class="px-3 m-1 border text-center  text-primary " to="/Request">
+        Free List
       </RouterLink>
-      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
-        to="/FindStateCity">Other's list
+      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
+        class="px-3 m-1 border text-center  text-primary" to="/FindStateCity">Other's list
       </RouterLink>
-      <a v-if="myWebsite" :href="myWebsite" target="_blank" class="px-3 m-1 border   text-primary">
+      <a v-if="myWebsite" :href="myWebsite" target="_blank" class="px-3 m-1 border text-center  text-primary">
         My Agency</a>
-      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
-        to="/FAQ">FAQ
+      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
+        class="px-3 m-1 border  text-center text-primary" to="/FAQ">FAQ
       </RouterLink>
     </div>
   </template>
