@@ -6,13 +6,13 @@
 
     <div class="d-flex justify-content-center  bg-light">
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
-        class="px-3 m-1 border border-2 text-center border-info text-primary" to="/">Local Listing
+        class="px-3 m-1 border border-2 text-center border-info text-primary" to="/">My Local Listing
       </RouterLink>
 
 
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
         class="px-3 m-1 border border-2 border-info text-center  text-primary " to="/Request">
-        Free Listing
+        Free Listing Request
       </RouterLink>
     </div>
     <div class="d-flex justify-content-center bg-light">
