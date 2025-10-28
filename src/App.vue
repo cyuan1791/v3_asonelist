@@ -6,7 +6,7 @@
 
     <div class="d-flex justify-content-center  bg-light">
       <RouterLink active-class="bg-success bg-opacity-50 px-5 border-danger rounded"
-        class="px-3 m-1 border text-center text-primary" to="/">Local List
+        class="px-3 m-1 border text-center text-primary" to="/">My Local List
       </RouterLink>
     </div>
     <div class="d-flex justify-content-center bg-light">
