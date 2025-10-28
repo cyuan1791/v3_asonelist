@@ -4,18 +4,17 @@
 
   <div v-if="city && state" class="d-flex justify-content-center p-3 bg-light">
     <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border  text-primary"
-      to="/">Local listing
+      to="/">Local list
     </RouterLink>
     <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border  text-primary "
       to="/Request">
-      Free listing
+      Free list
     </RouterLink>
     <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
       to="/FindStateCity">Other's
-      listing
     </RouterLink>
     <a v-if="myWebsite" :href="myWebsite" target="_blank" class="px-3 m-1 border   text-primary">
-      My agency</a>
+      Agency</a>
     <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded" class="px-3 m-1 border   text-primary"
       to="/FAQ">FAQ
     </RouterLink>
