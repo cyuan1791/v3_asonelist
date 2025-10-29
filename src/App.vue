@@ -6,13 +6,14 @@
 
     <div class="d-flex justify-content-center pt-2 bg-light">
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
-        class="px-3 m-1 py-1 border border-2 text-center border-info text-primary rounded" to="/">Local List
+        class="px-3 m-1 py-1 border border-2 text-center border-info text-primary rounded" to="/">
+        {{ capitalizeFirstLetter(city) }} {{ state }} List
       </RouterLink>
 
 
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded text-primary"
         class="px-3 m-1 py-1 border border-2 border-info text-center rounded" to="/Request">
-        Free List Request
+        List Request
       </RouterLink>
     </div>
     <div class="d-flex justify-content-center pb-2 bg-light">
@@ -60,5 +61,12 @@ const myWebsite = computed(() => {
     return '';
   }
 })
+
+function capitalizeFirstLetter(str) {
+  if (!str) { // Handle empty or null strings
+    return str;
+  }
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 </script>
