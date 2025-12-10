@@ -15,6 +15,9 @@
         class="px-3 m-1 py-1 border border-2 border-info text-center rounded" to="/Request">
         List Request
       </RouterLink>
+      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
+        class="px-3 m-1 py-1 border border-2 border-info text-center text-primary rounded" to="/FAQ">FAQ
+      </RouterLink>
     </div>
     <div class="d-flex justify-content-center pb-2 bg-light">
       <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
@@ -24,9 +27,9 @@
       <a v-if="myWebsite" :href="myWebsite" target="_blank"
         class="px-3 m-1 py-1 border border-2 border-info text-center rounded text-primary">
         Agency</a>
-      <RouterLink active-class="bg-success bg-opacity-50 border-danger rounded"
-        class="px-3 m-1 py-1 border border-2 border-info text-center text-primary rounded" to="/FAQ">FAQ
-      </RouterLink>
+      <a v-if="communityWebsite" :href="communityWebsite" target="_blank"
+        class="px-3 m-1 py-1 border border-2 border-info text-center rounded text-primary">
+        Community</a>
     </div>
   </template>
   <div v-else>
@@ -60,6 +63,9 @@ const myWebsite = computed(() => {
   } else {
     return '';
   }
+})
+const communityWebsite = computed(() => {
+    return myurl(city.value, state.value, 'citywebasone.com');
 })
 
 function capitalizeFirstLetter(str) {
