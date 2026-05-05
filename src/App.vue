@@ -27,9 +27,9 @@
       <a v-if="myWebsite" :href="myWebsite" target="_blank"
         class="px-3 m-1 py-1 border border-2 border-info text-center rounded text-primary">
         Agency</a>
-      <a v-if="communityWebsite" :href="communityWebsite" target="_blank"
+      <a v-if="asonecity" :href="asonecity" target="_blank"
         class="px-3 m-1 py-1 border border-2 border-info text-center rounded text-primary">
-        Community</a>
+        AsoneCity</a>
     </div>
   </template>
   <div v-else>
@@ -54,18 +54,15 @@ function myurl(city, state, domain) {
   return 'https://' + city.replace(' ', '').replace("'", '').replace(' ', '').replace("'", '').replace('.', '-') + '-' + state + '.' + domain;
 }
 const myWebsite = computed(() => {
-  if (state.value === 'CA') {
-    return myurl(city.value, state.value, 'webasone-ca.com');
-    //return `https://${city.value.toLowerCase()}-${state.value}.webasone-ca.com`;
-  } else if (state.value) {
+  if (state.value) {
     return myurl(city.value, state.value, 'webasone-us.com');
     //return `https://${city.value.toLowerCase()}-${state.value}.webasone-us.com`;
   } else {
     return '';
   }
 })
-const communityWebsite = computed(() => {
-    return myurl(city.value, state.value, 'citywebasone.com');
+const asonecity = computed(() => {
+    return myurl(city.value, state.value, 'asonecity.com');
 })
 
 function capitalizeFirstLetter(str) {
